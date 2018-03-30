@@ -1,11 +1,11 @@
-# stremio-addons-client
+# stremio-addon-client
 
 Client library for using stremio addons (v3 protocol). You can read the actual protocol [here](https://github.com/Stremio/stremio-addons-sdk/blob/master/docs/protocol.md).
 
 ## Using an add-on
 
 ```javascript
-const AddonClient = require('stremio-addons-client')
+const AddonClient = require('stremio-addon-client')
 ```
 
 **NOTE**: All functions here can either return a `Promise` or be given a `callback(err, res)`
