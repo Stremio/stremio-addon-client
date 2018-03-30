@@ -2,6 +2,8 @@
 
 Client library for using stremio addons (v3 protocol). You can read the actual protocol [here](https://github.com/Stremio/stremio-addons-sdk/blob/master/docs/protocol.md).
 
+This can be used to make a UI to the stremio addons. It is currently used in the [Stremio desktop app](https://www.stremio.com), [mobile app](https://www.stremio.com) and [web app](https://app.strem.io).
+
 ## Using an add-on
 
 ```javascript
