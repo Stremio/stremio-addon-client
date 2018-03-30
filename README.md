@@ -4,7 +4,7 @@ Client library for using stremio addons (v3 protocol). You can read the actual p
 
 ## Using an add-on
 
-```
+```javascript
 const AddonClient = require('stremio-addons').AddonClient
 
 // .detectFromURL() will construct an add-on (or repo) from url
@@ -21,7 +21,7 @@ All functions can either take `cb` at the end or will return a promise
 
 #### Transport
 
-```
+```javascript
 let transport = new Transport(url)
 transport.manifest(cb)
 transport.get(args, cb)
