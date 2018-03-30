@@ -1,0 +1,25 @@
+{
+  "name": "stremio-addons-client",
+  "version": "1.0.0",
+  "description": "Client library for using stremio addons (v3 protocol) ",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node test/v3.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/stremio/stremio-addons-client.git"
+  },
+  "keywords": [
+    "stremio",
+    "addons",
+    "client",
+    "video"
+  ],
+  "author": "Smart Code OOD",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/stremio/stremio-addons-client#readme"
+}
