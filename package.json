@@ -1,5 +1,5 @@
 {
-  "name": "stremio-addons-client",
+  "name": "stremio-addon-client",
   "version": "1.0.0",
   "description": "Client library for using stremio addons (v3 protocol) ",
   "main": "index.js",
