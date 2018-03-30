@@ -21,5 +21,13 @@
   ],
   "author": "Smart Code OOD",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/stremio/stremio-addons-client#readme"
+  "homepage": "https://bitbucket.org/stremio/stremio-addons-client#readme",
+  "dependencies": {
+    "ipfs": "^0.28.2",
+    "ipfs-pubsub-room": "^1.2.0",
+    "ipfs-repo": "^0.18.7",
+    "node-fetch": "^2.1.2",
+    "tape": "^4.9.0",
+    "thunky": "^1.0.2"
+  }
 }
