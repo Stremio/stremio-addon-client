@@ -5,10 +5,10 @@ Client library for using stremio addons (v3 protocol). You can read the actual p
 ## Using an add-on
 
 ```javascript
-const AddonClient = require('stremio-addons').AddonClient
+const AddonClient = require('stremio-addons-client')
 ```
 
-**NOTE**: All async functions can either return a `Promise` or be given a `callback(err, res)`
+**NOTE**: All functions here can either return a `Promise` or be given a `callback(err, res)`
 
 #### `AddonClient.detectFromURL(url)` - detects whether a URL is an addon, repository or neither and constructs the given object
 
@@ -19,9 +19,10 @@ If it detects a repo: `{ repository: { /* repo object */ } }`
 If it detects neither, it will throw an exception (or return an error if using a callback): `errors.ERR_RESP_UNRECOGNIZED`
 
 
-#### `new AddonClient(manifest, transport)` - synchronously returns an instance of `AddonClient`
+#### `AddonClient.constructFromManifest(manifest)` - returns an instance of `AddonClient` constructed from a manifest object
 
 #### `addon.get(resource, type, id)` - call the add-on with the given args 
+
 
 ## Example
 
@@ -44,3 +45,5 @@ let transport = new Transport(url)
 transport.manifest(cb)
 transport.get(args, cb)
 ```
+
+**NOTE** - you can synchronously construct instances of `AddonClient` by using the constructor directly: `new AddonClient(manifest, transport)`
