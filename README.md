@@ -6,16 +6,34 @@ Client library for using stremio addons (v3 protocol). You can read the actual p
 
 ```javascript
 const AddonClient = require('stremio-addons').AddonClient
-
-// .detectFromURL() will construct an add-on (or repo) from url
-
-//const client = new AddonClient(manifest, transport)
-
-client.get('stream', 'movie', 'tt')
-// client.get(resource, type, id)
 ```
 
-All functions can either take `cb` at the end or will return a promise
+**NOTE**: All async functions can either return a `Promise` or be given a `callback(err, res)`
+
+#### `AddonClient.detectFromURL(url)` - detects whether a URL is an addon, repository or neither and constructs the given object
+
+If it detects an add-on: `{ addon: { /* AddonClient object */ } }`
+
+If it detects a repo: `{ repository: { /* repo object */ } }`
+
+If it detects neither, it will throw an exception (or return an error if using a callback): `errors.ERR_RESP_UNRECOGNIZED`
+
+
+#### `new AddonClient(manifest, transport)` - synchronously returns an instance of `AddonClient`
+
+#### `addon.get(resource, type, id)` - call the add-on with the given args 
+
+## Example
+
+```javascript
+AddonClient.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucuZxwBH7CffQMtftkLDypBrg/manifest.json')
+.then(function(resp) {
+	return resp.addon.get('meta', 'movie', 'exmp:1')
+})
+.then(function(resp) {
+	console.log(resp.meta)
+})
+```
 
 ## Internal APIs
 
