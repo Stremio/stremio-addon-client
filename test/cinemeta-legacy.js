@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const AddonClient = require('../lib/client')
-const errors = require('../lib/errors')
 
 const tape = require('tape')
 
