@@ -46,6 +46,8 @@ AddonClient.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucu
 let transport = new Transport(url)
 transport.manifest(cb)
 transport.get(args, cb)
+
+// transport.name
 ```
 
 **NOTE** - you can synchronously construct instances of `AddonClient` by using the constructor directly: `new AddonClient(manifest, transport)`
