@@ -32,5 +32,6 @@ tape('detectFromURL: detect and use cinemeta LEGACY URL and work', function(t) {
 	})
 	.catch(function(err) {
 		t.error(err, 'error')
+		t.end()
 	})
 })
