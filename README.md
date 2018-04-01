@@ -21,7 +21,7 @@ If it detects a repo: `{ repository: { /* repo object */ } }`
 If it detects neither, it will throw an exception (or return an error if using a callback): `errors.ERR_RESP_UNRECOGNIZED`
 
 
-#### `AddonClient.constructFromManifest(manifest)` - returns an instance of `AddonClient` constructed from a manifest object
+#### `AddonClient.constructFromManifest(manifest, transportName)` - returns an instance of `AddonClient` constructed from a manifest object
 
 
 #### Instance of AddonClient 
