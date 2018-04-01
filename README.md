@@ -23,7 +23,12 @@ If it detects neither, it will throw an exception (or return an error if using a
 
 #### `AddonClient.constructFromManifest(manifest)` - returns an instance of `AddonClient` constructed from a manifest object
 
-#### `addon.get(resource, type, id)` - call the add-on with the given args 
+
+#### Instance of AddonClient 
+
+##### `addon.get(resource, type, id)` - call the add-on with the given args 
+
+##### `addon.manifest` - the manifest of the add-on
 
 
 ## Example
