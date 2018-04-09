@@ -29,7 +29,7 @@ tape('detectFromURL: legacy protocol', function(t) {
 			t.error(err, 'no error from catalog')
 			t.ok(resp, 'has response')
 			t.ok(Array.isArray(resp.metas), 'response is an array')
-			t.ok(resp.metas.length === 70, 'response is full length')
+			t.ok(resp.metas.length === 100, 'response is full length')
 
 			res.addon.get('meta', resp.metas[0].type, resp.metas[0].imdb_id, function(err, resp) {
 				t.error(err, 'no error from meta')
