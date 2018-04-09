@@ -21,7 +21,7 @@ If it detects a repo: `{ repository: { /* repo object */ } }`
 If it detects neither, it will throw an exception (or return an error if using a callback): `errors.ERR_RESP_UNRECOGNIZED`
 
 
-#### `AddonClient.constructFromManifest(manifest, transportName)` - returns an instance of `AddonClient` constructed from a manifest object
+#### `AddonClient.constructFromManifest(manifest, transportName)` - returns an `{ addon, fetchNewManifest }` where `addon` is an instance of `AddonClient` constructed from the passed manifest object, and `fetchNewManifest` is a function to fetch the latest manifest from the transport
 
 
 #### Instance of AddonClient 
@@ -42,6 +42,8 @@ AddonClient.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucu
 	console.log(resp.meta)
 })
 ```
+
+## AddonCollection
 
 ## Internal APIs
 
