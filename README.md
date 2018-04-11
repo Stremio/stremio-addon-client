@@ -21,7 +21,15 @@ If it detects a repo: `{ repository: { /* repo object */ } }`
 If it detects neither, it will throw an exception (or return an error if using a callback): `errors.ERR_RESP_UNRECOGNIZED`
 
 
-#### `AddonClient.constructFromManifest(manifest, transportName)` - returns an `{ addon, fetchNewManifest }` where `addon` is an instance of `AddonClient` constructed from the passed manifest object, and `fetchNewManifest` is a function to fetch the latest manifest from the transport
+#### `AddonClient.constructFromManifest(manifest, transportName, flags)`
+
+`manifest` is a valid add-on manifest
+
+`transportName` is the name of the used transport, such as `legacy`, `http` or `ipfs`. Needs to be consistent with `manifest.url`
+
+`flags` is an arbitrary object in case you want any additional information about the add-on when you're adding it, such as where it was added from, whether it is official (`official`) or whether it's protected (`protected`)
+
+Returns an `{ addon, fetchNewManifest }` where `addon` is an instance of `AddonClient` constructed from the passed manifest object, and `fetchNewManifest` is a function to fetch the latest manifest from the transport
 
 
 #### Instance of AddonClient 
@@ -57,4 +65,4 @@ transport.get(args, cb)
 // transport.name
 ```
 
-**NOTE** - you can synchronously construct instances of `AddonClient` by using the constructor directly: `new AddonClient(manifest, transport)`
+**NOTE** - you can synchronously construct instances of `AddonClient` by using the constructor directly: `new AddonClient(manifest, transport, flags)`
