@@ -130,6 +130,4 @@ tape('detectFromURL: IPFS: detect and use manifest.json URL', function(t) {
 
 // @TODO: detectFromURL: .get() in http transport: 404 and etc. handled accordingly
 
-// @TODO: constructFromManifest: invalid transport
-
-// @TODO: constructFromManifest: constructs successfully
+// @TODO: collections, save and load
