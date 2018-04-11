@@ -53,6 +53,22 @@ AddonClient.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucu
 
 ## AddonCollection
 
+```javascript
+let col = new client.AddonCollection()
+let promises = col.load(require('stremio-official-addons'))
+
+// Catch errors on trying to update the manifests for those add-ons
+promises.forEach(function(p) {
+    p.catch(function(err) { console.error(err) })
+})
+```
+
+`col.addons` - array of all Add-ons, where each is an instance of `AddonClient`
+
+`col.load()` - load from an object that describes all add-ons (format: `[{ manifest, transportName, flags }]`)
+
+`col.save()` - get the object that describes all add-ons (same format as `col.load()`)
+
 ## Internal APIs
 
 #### Transport
