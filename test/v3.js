@@ -6,6 +6,8 @@ const errors = require('../lib/errors')
 
 const tape = require('tape')
 
+const exampleAddonHash = 'QmP8Y9GwHnvj3nFuENKHiNa2oCv1ZUGjTSPr3oqtR5J7gD'
+
 tape('detectFromURL: invalid protocol', function(t) {
 	client.detectFromURL('ftp://cinemeta.strem.io', function(err, res) {
 		t.equals(err, errors.ERR_PROTOCOL, 'err is the right type')
@@ -44,8 +46,8 @@ tape('detectFromURL: legacy protocol', function(t) {
 })
 
 tape('detectFromURL: http transport: detect and use manifest.json URL', function(t) {
-	// const ipfsURL = 'https://gateway.ipfs.io/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
-	const ipfsURL = 'http://localhost:8080/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
+	// const ipfsURL = 'https://gateway.ipfs.io/ipfs/'+exampleAddonHash+'/manifest.json'
+	const ipfsURL = 'http://localhost:8080/ipfs/'+exampleAddonHash+'/manifest.json'
 	const ipnsURL = 'https://gateway.ipfs.io/ipns/QmYRaTC2DqsgXaRUJzGFagLy725v1QyYwt66kvpifPosgj/manifest.json'
 
 	let addon
@@ -83,8 +85,8 @@ tape('detectFromURL: http transport: detect and use manifest.json URL', function
 
 // Extra args
 tape('extra args: http transport (IPFS gateway)', function(t) {
-	// const ipfsURL = 'https://gateway.ipfs.io/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
-	const ipfsURL = 'http://localhost:8080/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
+	// const ipfsURL = 'https://gateway.ipfs.io/ipfs/'+exampleAddonHash+'/manifest.json'
+	const ipfsURL = 'http://localhost:8080/ipfs/'+exampleAddonHash+'/manifest.json'
 
 	let addon
 	client.detectFromURL(ipfsURL)
