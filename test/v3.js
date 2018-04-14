@@ -105,9 +105,30 @@ tape('extra args: http transport (IPFS gateway)', function(t) {
 	})
 })
 
+// Extra args
+tape('extra args: ipfs transport', function(t) {
+	const ipfsURL = 'ipfs://'+exampleAddonHash+'/manifest.json'
+	const ipnsURL = 'ipns://QmYRaTC2DqsgXaRUJzGFagLy725v1QyYwt66kvpifPosgj/manifest.json'
+
+	let addon
+	client.detectFromURL(ipfsURL)
+	.then(function(res) {
+		t.ok(res.addon, 'addon is ok')
+		return res.addon.get('catalog', 'movie', 'top', { search: 'the office' })
+	})
+	.then(function(res) {
+		t.ok('has extra')
+		t.equal(res.extra.search, 'the office', 'search arg works')
+		t.end()
+	})
+	.catch(function(err) {
+		t.error(err, 'extra args err')
+		t.end()
+	})
+})
 
 tape('detectFromURL: IPFS: detect and use manifest.json URL', function(t) {
-	const ipfsURL = 'ipfs://QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
+	const ipfsURL = 'ipfs://'+exampleAddonHash+'/manifest.json'
 	const ipnsURL = 'ipns://QmYRaTC2DqsgXaRUJzGFagLy725v1QyYwt66kvpifPosgj/manifest.json'
 
 	let addon
@@ -145,7 +166,6 @@ tape('detectFromURL: IPFS: detect and use manifest.json URL', function(t) {
 		else t.end()
 	})
 })
-
 
 
 // @TODO: detectFromURL: not recognized json response (ERR_RESP_UNRECOGNIZED)
