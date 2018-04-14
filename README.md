@@ -65,9 +65,25 @@ promises.forEach(function(p) {
 
 `col.addons` - array of all Add-ons, where each is an instance of `AddonClient`
 
-`col.load()` - load from an object that describes all add-ons (format: `[{ manifest, transportName, flags }]`)
+`col.load()` - load from an object that describes all add-ons (format: `[{ manifest, transportUrl, transportName, flags }]`)
 
 `col.save()` - get the object that describes all add-ons (same format as `col.load()`)
+
+### Universal save/load format
+
+The format of the `.save()` and `.load()` functions is widely used across Stremio to describe a collection of add-ons.
+
+It can also be used to distribute collections of add-ons as JSON files amongst users - similar to the Kodi add-on repositories.
+
+The format is `[{ manifest, transportUrl, transportName, flags }]`, where `flags` is ignored by Stremio if loading an untrusted collection.
+
+`manifest` is a valid stremio addon v3 manifest
+
+`transportUrl` is the URL to the add-on
+
+`transportName` is the name of the transport
+
+`flags` is used when Stremio is loading a trusted collection (a built-in collection) to flag add-ons as official or protected
 
 ## Internal APIs
 
