@@ -44,7 +44,8 @@ tape('detectFromURL: legacy protocol', function(t) {
 })
 
 tape('detectFromURL: detect and use manifest.json URL', function(t) {
-	const ipfsURL = 'https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucuZxwBH7CffQMtftkLDypBrg/manifest.json'
+	// const ipfsURL = 'https://gateway.ipfs.io/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
+	const ipfsURL = 'http://localhost:8080/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
 	const ipnsURL = 'https://gateway.ipfs.io/ipns/QmYRaTC2DqsgXaRUJzGFagLy725v1QyYwt66kvpifPosgj/manifest.json'
 
 	let addon
@@ -57,7 +58,7 @@ tape('detectFromURL: detect and use manifest.json URL', function(t) {
 
 		addon = res.addon
 
-		return addon.get('catalog', 'top')
+		return addon.get('catalog', 'movie', 'top')
 	})
 	.then(function(resp) {
 		t.ok(resp && Array.isArray(resp.metas), 'response is an array')
@@ -81,7 +82,7 @@ tape('detectFromURL: detect and use manifest.json URL', function(t) {
 })
 
 tape('detectFromURL: IPFS: detect and use manifest.json URL', function(t) {
-	const ipfsURL = 'ipfs://QmeZ431sbdzuqJppkiGMTucuZxwBH7CffQMtftkLDypBrg/manifest.json'
+	const ipfsURL = 'ipfs://QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
 	const ipnsURL = 'ipns://QmYRaTC2DqsgXaRUJzGFagLy725v1QyYwt66kvpifPosgj/manifest.json'
 
 	let addon
