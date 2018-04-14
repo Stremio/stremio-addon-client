@@ -43,7 +43,7 @@ tape('detectFromURL: legacy protocol', function(t) {
 	})
 })
 
-tape('detectFromURL: detect and use manifest.json URL', function(t) {
+tape('detectFromURL: http transport: detect and use manifest.json URL', function(t) {
 	// const ipfsURL = 'https://gateway.ipfs.io/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
 	const ipfsURL = 'http://localhost:8080/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
 	const ipnsURL = 'https://gateway.ipfs.io/ipns/QmYRaTC2DqsgXaRUJzGFagLy725v1QyYwt66kvpifPosgj/manifest.json'
@@ -81,6 +81,29 @@ tape('detectFromURL: detect and use manifest.json URL', function(t) {
 	})
 })
 
+// Extra args
+tape('extra args: http transport (IPFS gateway)', function(t) {
+	// const ipfsURL = 'https://gateway.ipfs.io/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
+	const ipfsURL = 'http://localhost:8080/ipfs/QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
+
+	let addon
+	client.detectFromURL(ipfsURL)
+	.then(function(res) {
+		t.ok(res.addon, 'addon is ok')
+		return res.addon.get('catalog', 'movie', 'top', { search: 'the office' })
+	})
+	.then(function(res) {
+		t.ok('has extra')
+		t.equal(res.extra.search, 'the office', 'search arg works')
+		t.end()
+	})
+	.catch(function(err) {
+		t.error(err, 'extra args err')
+		t.end()
+	})
+})
+
+
 tape('detectFromURL: IPFS: detect and use manifest.json URL', function(t) {
 	const ipfsURL = 'ipfs://QmRL5DURfKupVZ2BXaEhnFw1MvPAesHU2NwJwD43gRrb7g/manifest.json'
 	const ipnsURL = 'ipns://QmYRaTC2DqsgXaRUJzGFagLy725v1QyYwt66kvpifPosgj/manifest.json'
@@ -96,7 +119,7 @@ tape('detectFromURL: IPFS: detect and use manifest.json URL', function(t) {
 
 		addon = res.addon
 
-		return addon.get('catalog', 'top')
+		return addon.get('catalog', 'movie', 'top')
 	})
 	.then(function(resp) {
 		t.ok(Array.isArray(resp.metas), 'response is an array')
