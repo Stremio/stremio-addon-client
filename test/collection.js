@@ -8,6 +8,6 @@ tape('can initialize a collection', function(t) {
 	t.end()
 })
 
-// collection is properly de-duplicated
+// @TODO .includes, .add, .remove
 
-// collection can be persisted and restored
+// @TODO collection can be persisted and restored
