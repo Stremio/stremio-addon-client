@@ -12,11 +12,11 @@ const AddonClient = require('stremio-addon-client')
 
 **NOTE**: All functions here can either return a `Promise` or be given a `callback(err, res)`
 
-#### `AddonClient.detectFromURL(url)` - detects whether a URL is an addon, repository or neither and constructs the given object
+#### `AddonClient.detectFromURL(url)` - detects whether a URL is an addon, collection or neither and constructs the given object
 
 If it detects an add-on: `{ addon: { /* AddonClient object */ } }`
 
-If it detects a repo: `{ repository: { /* repo object */ } }`
+If it detects a collection: `{ collection: { /* collection descriptor that can be loaded by colletion.load() */ } }`
 
 If it detects neither, it will throw an exception (or return an error if using a callback): `errors.ERR_RESP_UNRECOGNIZED`
 
