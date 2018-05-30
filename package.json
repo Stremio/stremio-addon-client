@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "node test/v3.js"
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",
