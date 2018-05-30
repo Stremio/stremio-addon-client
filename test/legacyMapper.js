@@ -40,6 +40,23 @@ tape('legacyMapper: meta', function(t) {
 })
 
 
+tape('legacyMapper: subtitles', function(t) {
+	var req = mapper.mapRequest(['subtitles', 'movie', 'testHash', { videoName: 'testTag', videoSize: 3250739325, videoId: 'tt7026672:1:2' }])
+
+	t.equals(req.method, 'subtitles.find')
+	t.equals(req.params[0], null)
+
+	t.deepEqual(req.params[1], {
+		supportsZip: true, 
+		query: {
+			videoHash: 'testHash',
+			itemHash: 'tt7026672 1 2',
+			videoSize: 3250739325,
+			videoName: 'testTag',
+		},
+	}, 'params is ok') 
+	t.end()
+})
 // @TODO: manifest
 // @TODO: UC... special youtube case
 // @TODO: catalogs, sort logic specifics
