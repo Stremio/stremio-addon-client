@@ -69,6 +69,14 @@ promises.forEach(function(p) {
 
 `col.save()` - get the object that describes all add-ons (same format as `col.load()`)
 
+`col.includes(addon)` - returns boolean, whether the add-on is in the collection
+
+`col.add(addon)` - adds an addon to a collection
+
+`col.remove(addon)` - removes an addon from the collection
+
+`col.clone()` - creates a clone of the collection
+
 ### Universal save/load format
 
 The format of the `.save()` and `.load()` functions is widely used across Stremio to describe a collection of add-ons.
