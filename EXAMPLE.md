@@ -4,7 +4,7 @@ To build a basic stremio client, you need to use `stremio-addon-client`, `stremi
 
 This is an example:
 
-```
+```javascript
 const client = require('stremio-addon-client')
 const officialAddons = require('stremio-official-addons')
 const aggregators = require('stremio-aggregators')
