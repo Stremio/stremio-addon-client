@@ -4,7 +4,7 @@ Client library for using stremio addons (v3 protocol). You can read the actual p
 
 This can be used to make a UI to the stremio addons. It is currently used in the [Stremio desktop app](https://www.stremio.com), [mobile app](https://www.stremio.com) and [web app](https://app.strem.io).
 
-## Using an add-on
+## AddonClient
 
 ```javascript
 const AddonClient = require('stremio-addon-client')
@@ -32,7 +32,7 @@ Please note, this will apply the `stremio-addon-linter` to lint both add-ons and
 ##### `addon.manifest` - the manifest of the add-on
 
 
-## Example
+### AddonClient Example
 
 ```javascript
 AddonClient.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucuZxwBH7CffQMtftkLDypBrg/manifest.json')
