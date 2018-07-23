@@ -43,6 +43,16 @@ tape('can load a collection', function(t) {
 	t.end()
 })
 
-tape('')
+tape('can clone a collection', function(t) {
+	let col1 = new collection.AddonCollection()
+	col1.load(JSON.parse(colJSON))
+
+	let col2 = col1.clone()
+
+	var getM = function(x) { return x.manifest }
+	t.deepEquals(col1.getAddons().map(getM), col2.getAddons().map(getM), 'loaded collection has same add-ons')
+	t.end()
+})
+
 
 // @TODO .includes, .add, .remove
