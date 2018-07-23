@@ -64,7 +64,7 @@ promises.forEach(function(p) {
 })
 ```
 
-`col.addons` - array of all Add-ons, where each is an instance of `AddonClient`
+`col.getAddons()` - get an array of all Add-ons, where each is an instance of `AddonClient`
 
 `col.load()` - load from an object that describes all add-ons (format: `[{ manifest, transportUrl, transportName, flags }]`)
 
