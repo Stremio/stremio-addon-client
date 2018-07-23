@@ -6,18 +6,16 @@ This is an example:
 
 ```javascript
 const client = require('stremio-addon-client')
-const officialAddons = require('stremio-official-addons')
+const officialAddonsDescriptors = require('stremio-official-addons')
 const aggregators = require('stremio-aggregators')
 
-const col = new client.AddonCollection()
+const collection = new client.AddonCollection()
 
 // Load official add-ons
-col.load(officialAddons)
+collection.load(officialAddonsDescriptors)
 
 // Create an aggregator to get all rows
-const aggr = new aggregators.Catalogs(col.addons)
-
-aggr.run()
+const aggr = new aggregators.Catalogs(collection.getAddons())
 
 // Each time 'updated' is emitted you should re-fresh the view
 aggr.evs.on('updated', function() {
@@ -31,4 +29,6 @@ aggr.evs.on('updated', function() {
 
 })
 
+// Trigger the actual request proces
+aggr.run()
 ```
