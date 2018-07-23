@@ -5,6 +5,8 @@ const tape = require('tape')
 tape('can initialize a collection', function(t) {
 	let col = new collection.AddonCollection()
 	t.ok(col, 'has object')
+	t.ok(Array.isArray(col.save()), 'get [AddonDescriptor]')
+	
 	t.end()
 })
 

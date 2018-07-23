@@ -68,12 +68,6 @@ tape('detectFromURL: http transport: detect and use manifest.json URL', function
 	})
 	.then(function(resp) {
 		t.ok(resp.meta.id, 'meta has id')
-
-		return addon.get('stream', resp.meta.type, resp.meta.id)
-	})
-	.then(function(resp) {
-		t.ok(Array.isArray(resp.streams), 'streams is array')
-		t.equal(resp.streams.length, 2, 'streams is right length')
 		t.end()
 	})
 	.catch(function(err) {
@@ -92,10 +86,10 @@ tape('extra args: http transport (IPFS gateway)', function(t) {
 	client.detectFromURL(testURL)
 	.then(function(res) {
 		t.ok(res.addon, 'addon is ok')
-		return res.addon.get('catalog', 'series', 'top', { search: 'the office' })
+		return res.addon.get('catalog', 'movie', 'top', { search: 'the office' })
 	})
 	.then(function(res) {
-		t.equal(res.extra.search, 'the office', 'search arg works')
+		t.ok(Array.isArray(res.metas), 'metas is there')
 		t.end()
 	})
 	.catch(function(err) {
