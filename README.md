@@ -23,8 +23,6 @@ If it detects neither, it will throw an exception (or return an error if using a
 Please note, this will apply the `stremio-addon-linter` to lint both add-ons and collections. If the linting fails, the `err` will contain `lintResult` property with the exact output from the linter.
 
 
-
-
 #### Instance of AddonClient 
 
 ##### `addon.get(resource, type, id)` - call the add-on with the given args 
@@ -67,7 +65,7 @@ col.load(require('stremio-official-addons'))
 
 `col.clone()` - creates a clone of the collection
 
-### Universal save/load format
+### Universal save/load format (`[AddonDescriptor]`)
 
 The format of the `.save()` and `.load()` functions is widely used across Stremio to describe a collection of add-ons.
 
@@ -84,6 +82,11 @@ The format is `[{ manifest, transportUrl, transportName, flags }]` (also referre
 `transportName` is the name of the transport
 
 `flags` is used when Stremio is loading a trusted collection (a built-in collection) to flag add-ons as official or protected
+
+## mapURL
+
+`client.mapURL(URL1)` (returns a string, URL2) is a function that will convert URL1 to a more browser-friendly URL2. This just means forcing HTTPS, and changing `localhost` to `127.0.0.1` (CORS does not work on localhost). Since this is needed in a lot of places, we expose that function, and recommend that every URL obtained by user input is passed through it before becoming `transportUrl`
+
 
 ## Internal APIs
 
