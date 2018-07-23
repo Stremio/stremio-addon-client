@@ -7,6 +7,11 @@ tape('does not touch non http URLs', function(t) {
 	t.end()
 })
 
+tape('urls without protocol use https', function(t) {
+	t.equal(mapURL('//test/'), 'https://test/', 'gets https protocol')
+	t.end()
+})
+
 tape('changes http to https', function(t) {
 	t.equal(mapURL('http://test/'), 'https://test/', 'changes http to https')
 	t.end()
