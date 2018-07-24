@@ -1,6 +1,6 @@
 const client = require('./lib/client')
 const collection = require('./lib/collection')
-const mapURL = require('./lib/utils/mapURL')
+const mapURL = require('./lib/util/mapURL')
 
 module.exports = {
 	AddonClient: client.AddonClient,
