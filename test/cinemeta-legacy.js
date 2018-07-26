@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const AddonClient = require('../lib/client')
+var AddonClient = require('../lib/client')
 
-const tape = require('tape')
+var tape = require('tape')
 
-let addon
+var addon
 tape('detectFromURL: detect and use cinemeta LEGACY URL and work', function(t) {
 	AddonClient.detectFromURL('https://cinemeta.strem.io/stremio/v1')
 	.then(function(resp) {
@@ -22,7 +22,7 @@ tape('detectFromURL: detect and use cinemeta LEGACY URL and work', function(t) {
 tape('can get catalog/movie/top', function(t) {
 	return addon.get('catalog', 'movie', 'top')
 	.then(function(resp) {
-		let metas = resp.metas
+		var metas = resp.metas
 		t.ok(Array.isArray(metas), 'resp is an array')
 		t.end()		
 	})

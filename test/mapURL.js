@@ -1,6 +1,6 @@
-const mapURL = require('../lib/util/mapURL')
+var mapURL = require('../lib/util/mapURL')
 
-const tape = require('tape')
+var tape = require('tape')
 
 tape('does not touch non http URLs', function(t) {
 	t.equal(mapURL('ipfs://test/'), 'ipfs://test/', 'does not change ipfs url')
