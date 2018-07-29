@@ -25,6 +25,7 @@ Please note, this will apply the `stremio-addon-linter` to lint both add-ons and
 
 #### `client.fromDescriptor(descriptor)` - returns an instance of AddonClient, from AddonDescriptor
 
+Please note, `descriptor` must be a valid descriptor
 
 #### Instance of AddonClient 
 
