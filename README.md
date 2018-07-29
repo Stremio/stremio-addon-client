@@ -4,7 +4,7 @@ Client library for using stremio addons (v3 protocol). You can read the actual p
 
 This can be used to make a UI to the stremio addons. It is currently used in the [Stremio desktop app](https://www.stremio.com), [mobile app](https://www.stremio.com) and [web app](https://app.strem.io).
 
-## AddonClient
+## Client
 
 ```javascript
 const client = require('stremio-addon-client')
@@ -14,7 +14,7 @@ const client = require('stremio-addon-client')
 
 #### `client.detectFromURL(url)` - detects whether a URL is an addon, collection or neither and constructs the given object
 
-If it detects an add-on: `{ addon: { /* AddonClient object */ } }`
+If it detects an add-on: `{ addon: AddonClientInstance }`
 
 If it detects a collection: `{ collection: { /* collection descriptor that can be loaded by colletion.load() */ } }`
 
@@ -32,12 +32,15 @@ Please note, this will apply the `stremio-addon-linter` to lint both add-ons and
 
 ##### `addon.manifest` - the manifest of the add-on
 
+##### `addon.toDescriptor()` - returns an `AddonDescriptor`
+
 
 ### AddonClient Example
 
 ```javascript
 client.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucuZxwBH7CffQMtftkLDypBrg/manifest.json')
 .then(function(resp) {
+	// resp.addon is an instance of AddonClient
 	return resp.addon.get('meta', 'movie', 'exmp:1')
 })
 .then(function(resp) {
