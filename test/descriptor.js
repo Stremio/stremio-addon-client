@@ -12,4 +12,13 @@ tape('can construct from descriptor', function(t) {
 	t.end()
 })
 
+tape('can convert back to a descriptor', function(t) {
+	var desc2 = addon.toDescriptor()
+	t.ok(desc2, 'has descriptor')
+	t.ok(desc2.transportName, 'has transportName')
+	t.ok(desc2.transportUrl, 'has transportUrl')
+	t.deepEqual(descriptor, desc2, 'same as original')
+	t.end()
+})
+
 // @TODO: test error cases
