@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var client = require('../lib/client')
+var client = require('../')
 
 var errors = require('../lib/errors')
 
@@ -77,7 +77,7 @@ tape('detectFromURL: http transport: detect and use manifest.json URL', function
 })
 
 // Extra args
-tape('extra args: http transport (IPFS gateway)', function(t) {
+tape('extra args: http transport (cinemeta)', function(t) {
 	// var ipfsURL = 'https://gateway.ipfs.io/ipfs/'+exampleAddonHash+'/manifest.json'
 	//var ipfsURL = 'http://localhost:8080/ipfs/'+exampleAddonHash+'/manifest.json'
 	var testURL = 'https://v3-cinemeta.strem.io/manifest.json'

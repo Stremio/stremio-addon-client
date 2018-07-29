@@ -1,4 +1,4 @@
-var collection = require('../lib/collection')
+var AddonCollection = require('../').AddonCollection
 
 var tape = require('tape')
 
@@ -17,7 +17,7 @@ function getTestAddonCol() {
 
 
 tape('can initialize a collection', function(t) {
-	var col = new collection.AddonCollection()
+	var col = new AddonCollection()
 	t.ok(col, 'has object')
 	t.ok(Array.isArray(col.save()), 'get [AddonDescriptor]')
 	t.ok(Array.isArray(col.getAddons()), 'get [AddonClient]')
@@ -35,7 +35,7 @@ tape('can initialize a collection', function(t) {
 })
 
 tape('can load a collection', function(t) {
-	var col = new collection.AddonCollection()
+	var col = new AddonCollection()
 	col.load(JSON.parse(colJSON))
 
 	var getM = function(x) { return x.manifest }
@@ -44,7 +44,7 @@ tape('can load a collection', function(t) {
 })
 
 tape('can clone a collection', function(t) {
-	var col1 = new collection.AddonCollection()
+	var col1 = new AddonCollection()
 	col1.load(JSON.parse(colJSON))
 
 	var col2 = col1.clone()
