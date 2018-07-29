@@ -7,12 +7,12 @@ This can be used to make a UI to the stremio addons. It is currently used in the
 ## AddonClient
 
 ```javascript
-const AddonClient = require('stremio-addon-client')
+const client = require('stremio-addon-client')
 ```
 
 **NOTE**: All functions here can either return a `Promise` or be given a `callback(err, res)`
 
-#### `AddonClient.detectFromURL(url)` - detects whether a URL is an addon, collection or neither and constructs the given object
+#### `client.detectFromURL(url)` - detects whether a URL is an addon, collection or neither and constructs the given object
 
 If it detects an add-on: `{ addon: { /* AddonClient object */ } }`
 
@@ -21,6 +21,7 @@ If it detects a collection: `{ collection: { /* collection descriptor that can b
 If it detects neither, it will throw an exception (or return an error if using a callback): `errors.ERR_RESP_UNRECOGNIZED`
 
 Please note, this will apply the `stremio-addon-linter` to lint both add-ons and collections. If the linting fails, the `err` will contain `lintResult` property with the exact output from the linter.
+
 
 
 #### Instance of AddonClient 
@@ -35,7 +36,7 @@ Please note, this will apply the `stremio-addon-linter` to lint both add-ons and
 ### AddonClient Example
 
 ```javascript
-AddonClient.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucuZxwBH7CffQMtftkLDypBrg/manifest.json')
+client.detectFromURL('https://gateway.ipfs.io/ipfs/QmeZ431sbdzuqJppkiGMTucuZxwBH7CffQMtftkLDypBrg/manifest.json')
 .then(function(resp) {
 	return resp.addon.get('meta', 'movie', 'exmp:1')
 })
