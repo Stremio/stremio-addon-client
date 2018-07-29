@@ -23,6 +23,8 @@ If it detects neither, it will throw an exception (or return an error if using a
 Please note, this will apply the `stremio-addon-linter` to lint both add-ons and collections. If the linting fails, the `err` will contain `lintResult` property with the exact output from the linter.
 
 
+#### `client.fromDescriptor(descriptor)` - returns an instance of AddonClient, from AddonDescriptor
+
 
 #### Instance of AddonClient 
 
