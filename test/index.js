@@ -1,3 +1,4 @@
+global.fetch = require('node-fetch')
 require('./legacyMapper')
 require('./v3')
 require('./collection')

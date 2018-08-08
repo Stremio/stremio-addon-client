@@ -1,34 +1,34 @@
 {
-  "name": "stremio-addon-client",
-  "version": "1.7.0",
-  "description": "Client library for using stremio addons (v3 protocol)",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "node test/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://bitbucket.org/stremio/stremio-addons-client.git"
-  },
-  "keywords": [
-    "stremio",
-    "addons",
-    "client",
-    "video"
-  ],
-  "author": "Smart Code OOD",
-  "license": "MIT",
-  "homepage": "https://bitbucket.org/stremio/stremio-addons-client#readme",
-  "dependencies": {
-    "node-fetch": "^2.1.2",
-    "stremio-addon-linter": "^1.2.2",
-    "thunky": "^1.0.2",
-    "url": "^0.11.0"
-  },
-  "devDependencies": {
-    "tape": "^4.9.0"
-  }
+    "name": "stremio-addon-client",
+    "version": "1.7.0",
+    "description": "Client library for using stremio addons (v3 protocol)",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "node test/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://bitbucket.org/stremio/stremio-addons-client.git"
+    },
+    "keywords": [
+        "stremio",
+        "addons",
+        "client",
+        "video"
+    ],
+    "author": "Smart Code OOD",
+    "license": "MIT",
+    "homepage": "https://bitbucket.org/stremio/stremio-addons-client#readme",
+    "dependencies": {
+        "stremio-addon-linter": "1.2.2",
+        "thunky": "1.0.2",
+        "url": "0.11.0"
+    },
+    "devDependencies": {
+        "node-fetch": "2.1.2",
+        "tape": "4.9.0"
+    }
 }
