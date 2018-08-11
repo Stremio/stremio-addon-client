@@ -39,3 +39,19 @@ tape('isSupported: resource-specific types', function(t) {
 
 	t.end()
 })
+
+tape('isSupported: special case: catalog', function(t) {
+	var m = {
+		catalogs: [
+			{ id: 'top', type: 'movie' },
+			{ id: 'top2', type: 'channel' }
+		]
+	}
+
+	t.equal(isSupported(m, 'catalog', 'movie', 'top'), true, 'match catalog #1')
+	t.equal(isSupported(m, 'catalog', 'channel', 'top2'), true, 'match catalog #2')
+	t.equal(isSupported(m, 'catalog', 'channel', 'top'), false, 'anything else does not match')
+	t.equal(isSupported(m, 'catalog', 'series', 'top'), false, 'anything else does not match')
+
+	t.end()
+})
