@@ -27,6 +27,9 @@ tape('detectFromURL: legacy protocol', function(t) {
 		t.deepEqual(res.addon.manifest.idPrefixes, ['tt'], 'idPrefixes is right')
 
 		var cat = res.addon.manifest.catalogs[0]
+
+		t.ok(res.addon.isSupported('catalog', cat.type, cat.id), 'the call is supported')
+
 		res.addon.get('catalog', cat.type, cat.id, function(err, resp) {
 			t.error(err, 'no error from catalog')
 			t.ok(resp, 'has response')
@@ -63,6 +66,8 @@ tape('detectFromURL: http transport: detect and use manifest.json URL', function
 	})
 	.then(function(resp) {
 		t.ok(resp && Array.isArray(resp.metas), 'response is an array')
+
+		t.ok(addon.isSupported('meta', resp.metas[0].type, resp.metas[0].id), 'call is supported')
 
 		return addon.get('meta', resp.metas[0].type, resp.metas[0].id)
 	})
