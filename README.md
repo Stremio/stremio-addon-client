@@ -33,8 +33,6 @@ Please note, `descriptor` must be a valid descriptor
 
 ##### `addon.isSupported(resource, type, id)` - returns true/false depending on whether this addon supports this call, according to the manifest
 
-##### `addon.getLatestManifest()` - returns the latest manifest
-
 ##### `addon.manifest` - the manifest of the add-on
 
 ##### `addon.toDescriptor()` - returns an `AddonDescriptor`
