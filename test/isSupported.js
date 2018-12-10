@@ -13,7 +13,7 @@ tape('isSupported: checks for resource and types', function(t) {
 })
 
 tape('isSupported: checks for idPrefixes', function(t) {
-	var m = { resources: ['meta'], types: ['movie'], idPrefixes: ['tt', 'yt_id:'] }
+	var m = { resources: [{ name: 'meta' }], types: ['movie'], idPrefixes: ['tt', 'yt_id:'] }
 
 	t.equal(isSupported(m, 'meta', 'movie', '1'), false, 'does not match')
 	t.equal(isSupported(m, 'meta', 'movie', 'tt1'), true, 'matches first prefix')
