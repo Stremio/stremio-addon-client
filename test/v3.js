@@ -23,7 +23,7 @@ tape('detectFromURL: legacy protocol', function(t) {
 		t.ok(res.addon, 'addon is ok')
 		t.ok(res.addon.manifest, 'manifest is ok')
 		t.deepEqual(res.addon.manifest.catalogs, [{ type: 'series', id: 'top', name: null }, { type: 'movie', id: 'top', name: null }], 'catalogs is right')
-		t.deepEqual(res.addon.manifest.resources, ['meta'], 'resources is right')
+		t.deepEqual(res.addon.manifest.resources, [{ name: 'meta' }], 'resources is right')
 		t.deepEqual(res.addon.manifest.idPrefixes, ['tt'], 'idPrefixes is right')
 
 		var cat = res.addon.manifest.catalogs[0]
