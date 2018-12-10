@@ -3,7 +3,7 @@ var tape = require('tape')
 var isSupported = require('../lib/util/isSupported')
 
 tape('isSupported: checks for resource and types', function(t) {
-	var m = { resources: ['meta', 'stream'], types: ['movie', 'channel'] }
+	var m = { resources: [{ name: 'meta' }, { name: 'stream' }], types: ['movie', 'channel'] }
 	t.equal(isSupported(m, 'meta', 'movie', '1'), true, 'all match')
 	t.equal(isSupported(m, 'stream', 'movie', '1'), true, 'all match - second resource')
 	t.equal(isSupported(m, 'meta', 'channel', '1'), true, 'all match - second type')
