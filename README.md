@@ -60,7 +60,7 @@ col.load(require('stremio-official-addons'))
 
 `col.getAddons()` - get an array of all Add-ons, where each is an instance of `AddonClient`
 
-`col.load()` - load from an object that describes all add-ons (format: `[{ manifest, transportUrl, transportName, flags }]`, i.e. `[AddonDescriptor]`)
+`col.load()` - load from an object that describes all add-ons (format: `[{ manifest, transportUrl, flags }]`, i.e. `[AddonDescriptor]`)
 
 `col.save()` - get the object that describes all add-ons (same format as `col.load()`)
 
@@ -78,15 +78,13 @@ The format of the `.save()` and `.load()` functions is widely used across Stremi
 
 It can also be used to distribute collections of add-ons as JSON files amongst users - similar to the Kodi add-on repositories.
 
-The format is `[{ manifest, transportUrl, transportName, flags }]` (also referred to as `[AddonDescriptor]`), where `flags` is ignored by Stremio if loading an untrusted collection.
+The format is `[{ manifest, transportUrl, flags }]` (also referred to as `[AddonDescriptor]`), where `flags` is ignored by Stremio if loading an untrusted collection.
 
 #### AddonDescriptor
 
 `manifest` is a valid stremio addon v3 manifest
 
-`transportUrl` is the URL to the add-on
-
-`transportName` is the name of the transport
+`transportUrl` is the URL to the add-on; the transport that will be used will be determined from this URL
 
 `flags` is used when Stremio is loading a trusted collection (a built-in collection) to flag add-ons as official or protected
 
