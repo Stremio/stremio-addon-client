@@ -9,6 +9,9 @@ tape('can construct from descriptor', function(t) {
 	addon = client.fromDescriptor(descriptor)
 	t.ok(addon, 'has addon')
 	t.ok(addon instanceof client.AddonClient, 'addon is AddonClient')
+	var name = addon.manifest.name
+	addon.manifest.name = name+': changed'
+	t.equal(addon.manifest.name, name, 'cannot change manifest')
 	t.end()
 })
 
