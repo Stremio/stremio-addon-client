@@ -41,7 +41,7 @@ tape('legacyMapper: meta', function(t) {
 
 
 tape('legacyMapper: subtitles', function(t) {
-	var req = mapper.mapRequest(['subtitles', 'movie', 'testHash', { videoName: 'testTag', videoSize: 3250739325, videoId: 'tt7026672:1:2' }])
+	var req = mapper.mapRequest(['subtitles', 'movie', 'tt7026672:1:2', { videoName: 'testTag', videoSize: 3250739325, videoHash:  'testHash'}])
 
 	t.equals(req.method, 'subtitles.find')
 	t.equals(req.params[0], null)
