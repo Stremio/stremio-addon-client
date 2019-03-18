@@ -47,7 +47,6 @@ tape('legacyMapper: subtitles', function(t) {
 	t.equals(req.params[0], null)
 
 	t.deepEqual(req.params[1], {
-		supportsZip: true, 
 		query: {
 			videoHash: 'testHash',
 			itemHash: 'tt7026672 1 2',
