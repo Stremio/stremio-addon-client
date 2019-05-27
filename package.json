@@ -24,7 +24,7 @@
   "homepage": "https://bitbucket.org/stremio/stremio-addons-client#readme",
   "dependencies": {
     "node-fetch": "^2.1.2",
-    "stremio-addon-linter": "^1.6.1",
+    "stremio-addon-linter": "^1.7.0",
     "thunky": "^1.0.2",
     "url": "^0.11.0"
   },
