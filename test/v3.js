@@ -95,6 +95,7 @@ tape('extra args: http transport (cinemeta)', function(t) {
 	})
 	.then(function(res) {
 		t.ok(Array.isArray(res.metas), 'metas is there')
+		t.ok(res.metas[0].name.toLowerCase().includes('office'), 'search worked')
 		t.end()
 	})
 	.catch(function(err) {
