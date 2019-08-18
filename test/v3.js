@@ -91,7 +91,7 @@ tape('extra args: http transport (cinemeta)', function(t) {
 	client.detectFromURL(testURL)
 	.then(function(res) {
 		t.ok(res.addon, 'addon is ok')
-		return res.addon.get('catalog', 'movie', 'top', { search: 'the office' })
+		return res.addon.get('catalog', 'series', 'top', { search: 'the office' })
 	})
 	.then(function(res) {
 		t.ok(Array.isArray(res.metas), 'metas is there')
