@@ -29,7 +29,7 @@ Please note, `descriptor` must be a valid descriptor
 
 #### Instance of AddonClient 
 
-##### `addon.get(resource, type, id)` - call the add-on with the given args 
+##### `addon.get(resource, type, id [, extra])` - call the add-on with the given args 
 
 ##### `addon.isSupported(resource, type, id)` - returns true/false depending on whether this addon supports this call, according to the manifest
 
