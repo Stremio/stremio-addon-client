@@ -4,6 +4,7 @@ module.exports = {
 
 	fromDescriptor: require('./lib/fromDescriptor'),
 	detectFromURL: require('./lib/detectFromURL'),
+	stringifyRequest: require('./lib/stringifyRequest'),
 	mapURL: require('./lib/util/mapURL'),
 
 	transports: require('./lib/transports'),
